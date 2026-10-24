@@ -1,0 +1,103 @@
+/* Prova Odası tanıtım sitesi: uygulamanın kendi renkleri ve yazı tipleri.
+   Telefon ya da bilgisayar koyu temadaysa site de koyu görünür. */
+:root{
+  color-scheme:light dark;
+  --bg:#F3EFE9; --bg2:#FBF9F5; --surface:#FFFFFF; --ink:#16202D; --muted:#58606E;
+  --line:#E3DCD2; --hair:rgba(22,32,45,.08);
+  --teal:#1C7C7D; --teal-hi:#23908F; --teal-soft:#D5ECEB; --teal-ink:#0F4F50;
+  --rose:#A63A52; --gold:#B07A1E;
+  --sh-1:0 1px 2px rgba(22,32,45,.05),0 3px 10px -4px rgba(22,32,45,.10);
+  --sh-2:0 2px 4px rgba(22,32,45,.05),0 18px 40px -18px rgba(22,32,45,.30);
+  --serif:"Fraunces",Georgia,serif;
+  --sans:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0E151F; --bg2:#121B27; --surface:#172130; --ink:#E8EEF5; --muted:#9AA8BC;
+    --line:#263244; --hair:rgba(255,255,255,.07);
+    --teal:#4FB8B9; --teal-hi:#6CCFCF; --teal-soft:#16393B; --teal-ink:#A8E3E3;
+    --rose:#E58AA0; --gold:#E8B65A;
+    --sh-1:0 1px 2px rgba(0,0,0,.35),0 4px 12px -6px rgba(0,0,0,.5);
+    --sh-2:0 2px 4px rgba(0,0,0,.35),0 18px 40px -18px rgba(0,0,0,.75);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--sans);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  background-image:radial-gradient(110% 60% at 70% -10%,var(--teal-soft),transparent 60%)}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+.wrap.narrow{max-width:760px}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible,summary:focus-visible,.shots:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.02em;text-wrap:balance}
+h2 em,h1 em{font-style:italic;font-weight:500;color:var(--teal)}
+
+/* Üst kısım */
+header.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:20px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);font-family:var(--serif);font-weight:600;font-size:1.3rem;text-decoration:none}
+.brand em{font-style:italic;font-weight:500;color:var(--teal)}
+.brand img{width:38px;height:38px;border-radius:11px;box-shadow:var(--sh-1)}
+nav.links{display:flex;gap:20px;flex-wrap:wrap}
+nav.links a{color:var(--muted);text-decoration:none;font-size:.95rem;font-weight:500}
+nav.links a:hover{color:var(--ink)}
+
+/* Giriş bölümü */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding-block:36px 64px}
+.eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);margin:0 0 10px}
+.hero h1{font-size:clamp(2.6rem,7vw,4.4rem);line-height:1.02;margin:0 0 14px}
+.hero .tag{font-family:var(--serif);font-style:italic;font-size:clamp(1.2rem,2.6vw,1.5rem);color:var(--muted);margin:0 0 18px}
+.hero p.lead{max-width:52ch;margin:0 0 28px}
+.stores{display:flex;gap:12px;flex-wrap:wrap}
+.store{display:inline-flex;flex-direction:column;padding:10px 20px;border-radius:14px;background:var(--surface);border:1px solid var(--hair);box-shadow:var(--sh-1);color:var(--ink);text-decoration:none;min-width:170px}
+.store small{color:var(--muted);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.store strong{font-size:1.05rem}
+.phone{justify-self:center;width:min(320px,100%);aspect-ratio:9/16;border-radius:42px;background:#0B0F16;padding:10px;box-shadow:var(--sh-2),0 0 0 1px rgba(255,255,255,.08) inset}
+.phone img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:32px;display:block}
+
+/* Bölümler */
+section{padding-block:56px}
+h2{font-size:clamp(1.8rem,3.8vw,2.4rem);line-height:1.12;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 32px;max-width:62ch}
+.video{width:100%;max-width:960px;border-radius:22px;display:block;background:#000;aspect-ratio:16/9;box-shadow:var(--sh-2)}
+
+.features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.feature{background:var(--surface);border:1px solid var(--hair);border-radius:20px;padding:22px;box-shadow:var(--sh-1)}
+.feature .ico{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.45rem;background:var(--teal-soft)}
+.feature h3{margin:12px 0 6px;font-size:1.2rem}
+.feature p{margin:0;color:var(--muted);font-size:.96rem}
+
+.shots{display:flex;gap:18px;overflow-x:auto;padding:4px 4px 16px;scroll-snap-type:x mandatory}
+.shots figure{margin:0;flex:0 0 220px;scroll-snap-align:start}
+.shots img{width:220px;height:auto;aspect-ratio:9/16;object-fit:cover;object-position:top;border-radius:24px;display:block;box-shadow:var(--sh-2);border:1px solid var(--hair)}
+.shots figcaption{color:var(--muted);font-size:.92rem;text-align:center;margin-top:10px;font-weight:500}
+
+.privacy{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.privacy div{border-left:3px solid var(--teal);padding-left:14px}
+.privacy strong{display:block;font-family:var(--serif);font-size:1.15rem;font-weight:600}
+.privacy span{color:var(--muted);font-size:.96rem}
+
+details{background:var(--surface);border:1px solid var(--hair);border-radius:16px;padding:14px 18px;margin-bottom:10px;box-shadow:var(--sh-1)}
+summary{cursor:pointer;font-weight:600}
+details p{color:var(--muted);margin:10px 0 0}
+.contact{margin-top:24px;padding:22px;border-radius:20px;background:var(--teal-soft);border:1px solid var(--hair)}
+.contact .mail{font-family:var(--serif);font-size:1.3rem;font-weight:600;word-break:break-all}
+.contact p{color:var(--muted);margin:8px 0 0;font-size:.95rem}
+
+footer{padding-block:40px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);margin-top:32px;display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+footer a{color:var(--muted)}
+
+/* Alt sayfalar (destek, gizlilik) */
+.page h1{font-size:clamp(2rem,5vw,2.7rem);line-height:1.12;margin:28px 0 8px}
+.page h2{font-size:1.3rem;margin:34px 0 10px}
+.page p,.page li{margin:0 0 10px}
+.page .box{background:var(--surface);border:1px solid var(--hair);border-radius:16px;padding:14px 18px;margin:18px 0;box-shadow:var(--sh-1)}
+.page .muted{color:var(--muted)}
+.back{display:inline-block;margin-top:6px;font-weight:600;text-decoration:none}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .features,.privacy{grid-template-columns:1fr}
+  nav.links{display:none}
+}
